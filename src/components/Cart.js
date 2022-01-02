@@ -23,37 +23,30 @@ const Cart = ({ showCart }) => {
       <div className="cart-container">
         <h1 className="cart-headline">Cart </h1>
 
-        <ul>
-          {items.map((item) => (
-            <div className="cart-content">
-              <li key={item.id}>
-                <div className="thumbnail-container">
-                  <img src={item.image} className="thumbnail"></img>
-                </div>
-                <div className="info-container">
-                  <div className="info-item">
-                    <p> {item.name}</p>
-                  </div>
-                  <div className="info-item">
-                    <p>
-                      {item.price.toFixed(2)} x {item.quantity}
-                    </p>
-                    <span className="total">${cartTotal.toFixed(2)}</span>
-                  </div>
-                </div>
-                <div className="remove-button-container">
-                  <button
-                    className="remove-button"
-                    onClick={() => removeItem(item.id)}
-                  >
-                    <img src={remove} />
-                  </button>
-                </div>
-              </li>
+        {items.map((item) => (
+          <div className="cart-content">
+            <div className="thumbnail-container">
+              <img src={item.image} className="thumbnail"></img>
             </div>
-          ))}
-        </ul>
-        <button className="submit-button">Checkout</button>
+            <div className="info-container">
+              <div className="info-item">{item.name}</div>
+              <div className="info-item">
+                ${item.price.toFixed(2)} x {item.quantity}
+                <span className="total">${cartTotal.toFixed(2)}</span>
+              </div>
+            </div>
+            <div className="remove-button-container">
+              <button
+                className="remove-button"
+                onClick={() => removeItem(item.id)}
+              >
+                <img src={remove} />
+              </button>
+            </div>
+          </div>
+        ))}
+
+        <button className="submit-button checkout">Checkout</button>
       </div>
     </div>
   );

@@ -30,6 +30,14 @@ const Navbar = () => {
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
 
         <img className="logo" src={logo} />
+
+        <div className="nav-desktop">
+          <span>Collections</span>
+          <span>Men</span>
+          <span>Women</span>
+          <span>About</span>
+          <span>Contact</span>
+        </div>
       </div>
       <div className="navbar-right">
         <button className="cart-button" onClick={toggleCart}>

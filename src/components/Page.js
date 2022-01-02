@@ -3,11 +3,6 @@ import Slider from "./Slider";
 import Navbar from "./Navbar";
 import Product from "./Product";
 
-import { useCart } from "react-use-cart";
-
-import plus from "../assets/icon-plus.svg";
-import minus from "../assets/icon-minus.svg";
-import cart from "../assets/icon-cart.svg";
 import products from "../data";
 
 const Page = ({ quantity, setQuantity }) => {
@@ -25,28 +20,32 @@ const Page = ({ quantity, setQuantity }) => {
   return (
     <div className="page-container">
       <Navbar />
-      <div className="slider-container">
-        <Slider />
-      </div>
-      <span className="company-info">Sneaker Company</span>
+      <div className="page-internal">
+        <div className="slider-container">
+          <Slider />
+        </div>
+        <div className="product-container">
+          <span className="company-info">Sneaker Company</span>
 
-      {products.map((item, index) => {
-        return (
-          <Product
-            item={item}
-            name={item.name}
-            discount={item.discount}
-            description={item.description}
-            price={item.price}
-            priceOld={item.priceOld}
-            key={index}
-            handlePlus={handlePlus}
-            handleMinus={handleMinus}
-            quantity={quantity}
-            image={item.image}
-          />
-        );
-      })}
+          {products.map((item, index) => {
+            return (
+              <Product
+                item={item}
+                name={item.name}
+                discount={item.discount}
+                description={item.description}
+                price={item.price}
+                priceOld={item.priceOld}
+                key={index}
+                handlePlus={handlePlus}
+                handleMinus={handleMinus}
+                quantity={quantity}
+                image={item.image}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
